@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col text-left d-flex align-items-center">
+                    <nav style="margin-left: 20px;">
+                        <ul class="navbar-nav">
+                            <li class="row nav-item">
+                                <a class="nav-link" href="{% url 'portfolio:project_list' %}" style="color:black; font-weight:bold; font-family:'Gotham 700', sans-serif; font-size: 250%">Thiago Palitot</a>
+                                <span style="margin:0 10px;"> </span>
+                                <a class="nav-link align-self-center" href="{% url 'portfolio:about' %}" style="color:gray; font-weight:50; font-family:'Gotham', sans-serif; font-size: 250%">about</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col text-right">
+                    <div class="d-flex justify-content-end align-items-center" style="display: flex;">
+                        <a class="btn btn-link m-0 p-0 mt-4" href="https://www.linkedin.com/in/thiago-palitot-841585123/">
+                            <img src="/media/imagens/in.png" style="max-height: 16px; max-width: 16px;">
+                        </a>
+                        <a class="btn btn-link m-0 p-0 mt-4" href="https://www.instagram.com/tpalitot/?hl=pt-br">
+                            <img src="/media/imagens/insta.png" style="max-height: 16px; max-width: 16px;">
+                        </a>
+                        <a class="btn btn-link m-0 p-0 mt-4" href="https://api.whatsapp.com/send?phone=5584988482737">
+                            <img src="/media/imagens/whats.png" style="max-height: 16px; max-width: 16px;">
+                        </a>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </header>
+    
+      
+
+    <div class="container-fluid">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="fixed-footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 text-center">
+                  <button class="btn btn-primary" onclick="window.location.href='../'">Back</button>
+              </div>
+          </div>
+      </div>
+    </footer>
+  
+  
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

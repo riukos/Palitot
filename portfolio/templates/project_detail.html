@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-9P6UJHgUztwW8nHULbRlLUVb1nQmkWf8GvNQYZc/qbwN+kJdMwW8MBaD+bz1TGrT61TfL4pIPc4Z/r9ABryFbA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-fTsL4+6Vg77z5Zn9zVgAd+fZn0aPaWqrxDvhpz4jJx86nJ/pa/4Yo4teX9k1/UKiXQGKwALbF7vMJM90WfL7Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-zUWfjJyvRbO68gM6eGR+mg/zoZQjXVzNyLcOnJyf6nzF0wUkkv6IWGcS/pxpOgTzT9XAbfQ4YBBlO4LsNwOanw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+      <h2>{{ projeto.nome }}</h2>
+      <p>{{ projeto.descricao }}</p>
+     
+    </div>
+    <div class="col-md-6">
+      <p class="font-weight-bold">Cliente:</p>
+      <p>{{ projeto.cliente }}</p>
+    </div>
+    
+    {% if imagens %}
+    <div class="row mt-1 no-gutters d-flex" img {
+      max-width:100%;
+      height:auto;
+      object-fit: cover;sou
+    }>
+      {% for imagem in imagens|slice:"1:" %}
+        <div class="col-md-6 p-0">
+          <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="{{ imagem.descricao }}" data-toggle="modal" data-target="#imagem-modal" style="border-radius: 0;">
+          <div class="modal fade" id="imagem-modal" tabindex="-1" aria-labelledby="imagem-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="imagem-modal-label">{{ imagem.descricao }}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img src="{{ imagem.imagem.url }}" class="img-fluid"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>  
+    
+
+    {% if youtube_id %}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ youtube_id }}"></iframe>
+        </div>
+    {% endif %}      
+{% endblock %}

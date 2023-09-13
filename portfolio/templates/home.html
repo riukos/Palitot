@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Projetos{% endblock %}
+
+{% block content %}
+<div class="row">
+  {% for projeto in projetos %}
+  <div class="col-md-6 mb-4">
+    <div class="card">
+      <a href="{% url 'portfolio:project_detail' projeto.pk %}">
+        <img src="{{ projeto.imagem_set.first.imagem.url }}" class="card-img-top" alt="{{ projeto.nome }}">
+      </a>
+      
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
